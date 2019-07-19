@@ -65,6 +65,7 @@
 	width: 100%;
 	float: left;
 	margin-top: 55px;
+	background-color: white;
 }
 
 .input,
@@ -127,6 +128,7 @@
 	width: 100%;
 	float: left;
 	margin-top: 68px;
+	background-color: white;
 	/*	margin-bottom: 140px;*/
 }
 
@@ -155,6 +157,7 @@
 .reIntro {
 	width: 100%;
 	float: left;
+	background-color: white;
 	margin-top: 137px;
 	display: flex;
 	justify-content: center;
@@ -179,6 +182,7 @@
 .reCompany {
 	width: 100%;
 	float: left;
+	background-color: white;
 	margin-top: 50px;
 }
 
@@ -205,6 +209,7 @@
 	width: 100%;
 	height: 100px;
 	float: left;
+	background-color: white;
 	text-align: center;
 	margin-top: 49px;
 }
@@ -224,6 +229,7 @@
 	width: 100%;
 	height: 60px;
 	float: left;
+	background-color: white;
 }
 
 
