@@ -40,7 +40,7 @@
 
 				</div>
 				<div class="reBody">
-					<form action="in.php" method="post" id="reform" onsubmit="check()">
+					<form action="in.php" method="post" id="reform" >
 						<div class="reCapsule">
 							<div class="reBlue">
 								报名表信息填写
@@ -89,57 +89,21 @@
 							</div>
 						</div>
 						<div class="reWill">
-							<!--<div class="reWTitle" name="md1">
-								第一志愿
-							</div>-->
-							<select name="md1" class="reOption">
+							<select name="md1" class="reOption" id="md1">
 								<option value="" disabled selected style='display:none;'>第一志愿</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 							</select>
-							<!--<div class="reWTitle" name="md2">
-								第二志愿
-							</div>-->
-							<select name="md2" class="reOption">
+							<select name="md2" class="reOption" id="md2">
 								<option value="" disabled selected style='display:none;'>第二志愿</option>
 								<option value="">1</option>
 								<option value="">2</option>
 							</select>
-							<!--<div class="reWTitle" name="md3">
-								第三志愿
-							</div>-->
-							<select name="md3" class="reOption">
+							<select name="md3" class="reOption" id="md3">
 								<option value="" disabled selected style='display:none;'>第三志愿</option>
 								<option value="">1</option>
 								<option value="">2</option>
 							</select>
-							<!--<div class="reOption">
-								新媒体运营部
-							</div>
-							<div class="reOption">
-								多媒体事业部
-							</div>
-							<div class="reOption">
-								通讯社
-							</div>
-							<div class="reOption">
-								产品运营部
-							</div>
-							<div class="reOption">
-								产品经理组
-							</div>
-							<div class="reOption">
-								技术开发部
-							</div>
-							<div class="reOption">
-								企划公关部
-							</div>
-							<div class="reOption">
-								设计部
-							</div>
-							<div class="reOption">
-								行政人事部
-							</div>-->
 						</div>
 						<div class="reIntro">
 							<div class="reIVer">
@@ -163,7 +127,7 @@
 							</div>
 						</div>
 						<div class="reBtn">
-							<input type="submit" id="reBtn" value="报名"  />
+							<input type="button" id="reBtn" value="报名"  onclick="sub()"/>
 						</div>
 						<div class="reBl">
 
@@ -183,108 +147,87 @@
 		</script>
 	</body>
 	<script>
-		$(function() {
-			//获取网页中所有的form表单
-			$("form").each(function() {
-				//注册表单的提交事件
-				$(this).submit(function(event) {
-					//屏蔽表单的注册
-					event.preventDefault();
-					//获取url
-					var url = $(this).attr("action");
-
-					request(url,
-						'POST',
-						JSON.stringify($(this).serializeObject()),
-						function() {
-							alert('123');
-						},
-						null);
-				});
-			});
-
-		});
-
-		//将$.ajax函数 转化成一个简单的接口
-		function request(url, method, param, callback, fail) {
-			//alert(param);
-			$.ajax({
-				type: method,
-				//async:false,
-				contentType: "application/json;charset=UTF-8",
-				dataType: "json",
-				url: url,
-				data: param,
-				success: callback,
-				error: fail,
-			});
-		}
-
-		//将form表单里面的数据转化为json对象
-		$.fn.serializeObject = function() {
-			var o = {};
-			var a = this.serializeArray();
-			$.each(a, function() {
-				if(o[this.name] !== undefined) {
-					if(!o[this.name].push) {
-						o[this.name] = [o[this.name]];
-					}
-					o[this.name].push(this.value || '');
-				} else {
-					o[this.name] = this.value || '';
-				}
-			});
-			return o;
-		};
-		
+		var i=0;
 		function checkRadio(){
 			var item1 = $('input:radio[name=sex]:checked').val();
 			if(item1 == null){
 				alert('请选择你的性别');
 			}else{
 //				alert(item1);
+				i++;
+				console.log(i);
 			}
 		}
 		
 		function checkName(){
 			if (document.getElementById('inputName').value == '') {
 				alert('请输入你的姓名');
+			}else{
+				i++;
+				console.log(i);
 			}
 		}
 		
 		function checkTel(){
 			if (document.getElementById('inputTel').value.length != 11) {
 				alert('请输入正确格式的手机号')
-			} 
+			} else{
+				i++;
+				console.log(i);
+			}
 		}
 		
 		function checkQQ(){
 			if (document.getElementById('inputQQ').value.length == 0) {
 				alert('请输入正确格式的QQ号')
+			}else{
+				i++;
+				console.log(i);
 			}
 		}
 		
 		function checkYuan(){
 			if (document.getElementById('seList').value == '') {
 				alert('请选择你的院系');
+			}else{
+				i++;
+				console.log(i);
 			}
 		}
 		
 		function checkClass(){
 			if (document.getElementById('inputClass').value == '') {
 				alert('请输入你的专业');
+			}else{
+				i++;
+				console.log(i);
 			}
 		}
 		
 		function checkCardID(){
 			if (document.getElementById('inputCardID').value == '') {
 				alert('请输入你的三翼小金卡号')
+			}else{
+				i++;
+				console.log(i);
+			}
+		}
+		
+		function checkWill(){
+			if (document.getElementById('md1').value == '') {
+				alert('请选择一个第一志愿')
+			}else{
+				i++;
+				console.log(i);
 			}
 		}
 		
 		function checkTrod(){
 			if (document.getElementById('reIntro').value == '') {
 				alert('给我们自我介绍一下呗')
+			}else{
+				i++;
+				console.log(i);
 			}
 		}
 		
@@ -296,8 +239,19 @@
 			checkYuan();
 			checkClass();
 			checkCardID();
+			checkWill();
 			checkTrod();
+			if (i == 9){
+				
+				
+				document.getElementById('reform').submit();
+				
+			}
 		}
+		
+//		function sub(){
+//			document.getElementById('reform').submit();
+//		}
 	</script>
 
 </html>
