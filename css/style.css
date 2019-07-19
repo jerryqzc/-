@@ -84,7 +84,7 @@ html{
 }
 
 #input,
-#seList {
+#seList,#inputName,#inputTel,#inputQQ,#inputClass,#inputCardID {
 	width: 60%;
 	height: 55px;
 	font-size: 35px;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		function checkRadio(){
+			var item1 = $('input:radio[name=sex]:checked').val();
+			if(item1 == null){
+				alert('请选择你的性别');
+			}else{
+//				alert(item1);
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="" method="post">
+		<input type="radio" name="sex" value="boy" />boy
+		<br/>
+		<input type="radio" name="sex" value="girl" />girl
+		<br/>
+	<button onclick="checkRadio()">单击</button>
+</form>
+</html>

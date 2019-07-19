@@ -40,7 +40,7 @@
 
 				</div>
 				<div class="reBody">
-					<form action="in.php" method="post" id="reform">
+					<form action="in.php" method="post" id="reform" onsubmit="check()">
 						<div class="reCapsule">
 							<div class="reBlue">
 								报名表信息填写
@@ -48,7 +48,7 @@
 						</div>
 						<div class="reForm">
 							<div class="input">
-								<input type="text" id="input" name="name" placeholder="姓名" />
+								<input type="text" id="inputName" name="name" placeholder="姓名" />
 							</div>
 							<div class="input">
 								<div class="reWhite">
@@ -64,28 +64,28 @@
 								</div>
 							</div>
 							<div class="input">
-								<input type="text" id="input" name="tel" placeholder="手机号" />
+								<input type="text" id="inputTel" name="tel" placeholder="手机号" />
 							</div>
 							<div class="inPQM">
-								<input type="text" id="input" name="qq" placeholder="QQ" />
+								<input type="text" id="inputQQ" name="qq" placeholder="QQ" />
 							</div>
 							<div class="inPQM">
 								<select name="yuan" id="seList">
-									<option value="院系" disabled selected style='display:none;'>选择你的院系</option>
-									<option value="法学院与知识产权学院">法学院与知识产权学院</option>
-									<option value="信用风险管理学院">信用风险管理学院</option>
-									<option value="计算机科学与数学学院">计算机科学与数学学院</option>
-									<option value="公共管理学院">公共管理学院</option>
-									<option value="兴湘学院">兴湘学院</option>
-									<option value="化学学院">化学学院</option>
-									<option value="材料工程学院">材料工程学院</option>
+									<option value="" disabled selected style='display:none;'>选择你的院系</option>
+									<option  value="法学院与知识产权学院">法学院与知识产权学院</option>
+									<option  value="信用风险管理学院">信用风险管理学院</option>
+									<option  value="计算机科学与数学学院">计算机科学与数学学院</option>
+									<option  value="公共管理学院">公共管理学院</option>
+									<option  value="兴湘学院">兴湘学院</option>
+									<option  value="化学学院">化学学院</option>
+									<option  value="材料工程学院">材料工程学院</option>
 								</select>
 							</div>
 							<div class="inPQM">
-								<input type="text" name="class" id="input" placeholder="专业" />
+								<input type="text" name="class" id="inputClass" placeholder="专业" />
 							</div>
 							<div class="inPQM">
-								<input type="text" name="cardID" id="input" placeholder="三翼小金卡号" />
+								<input type="text" name="cardID" id="inputCardID" placeholder="三翼小金卡号" />
 							</div>
 						</div>
 						<div class="reWill">
@@ -94,8 +94,8 @@
 							</div>-->
 							<select name="md1" class="reOption">
 								<option value="" disabled selected style='display:none;'>第一志愿</option>
-								<option value="">1</option>
-								<option value="">2</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
 							</select>
 							<!--<div class="reWTitle" name="md2">
 								第二志愿
@@ -146,24 +146,24 @@
 
 							</div>
 							<!--<input type="text" name="reIntro" id="reIntro" value="" />-->
-							<textarea name="reIntro" name="trod" id="reIntro" placeholder="尽情发挥，介绍自己吧！"></textarea>
+							<textarea name="trod" id="reIntro" placeholder="尽情发挥，介绍自己吧！"></textarea>
 						</div>
 						<div class="reCompany">
 							<div class="reTips">
 								与小伙伴一起报名可获丰厚奖励哟～（选填）
 							</div>
 							<div class="input">
-								<input type="text" id="input" placeholder="小伙伴姓名" />
+								<input type="text" name="f_name" id="input" placeholder="小伙伴姓名" />
 							</div>
 							<div class="input">
-								<input type="text" id="input" placeholder="小伙伴三翼小金卡号" />
+								<input type="text" name="f_cardID" id="input" placeholder="小伙伴三翼小金卡号" />
 							</div>
 							<div class="reCFeed">
 								<a href="#" id="feedHref">有问题？反馈一下～</a>
 							</div>
 						</div>
 						<div class="reBtn">
-							<input type="submit" id="reBtn" value="报名" />
+							<input type="submit" id="reBtn" value="报名"  />
 						</div>
 						<div class="reBl">
 
@@ -236,6 +236,68 @@
 			});
 			return o;
 		};
+		
+		function checkRadio(){
+			var item1 = $('input:radio[name=sex]:checked').val();
+			if(item1 == null){
+				alert('请选择你的性别');
+			}else{
+//				alert(item1);
+			}
+		}
+		
+		function checkName(){
+			if (document.getElementById('inputName').value == '') {
+				alert('请输入你的姓名');
+			}
+		}
+		
+		function checkTel(){
+			if (document.getElementById('inputTel').value.length != 11) {
+				alert('请输入正确格式的手机号')
+			} 
+		}
+		
+		function checkQQ(){
+			if (document.getElementById('inputQQ').value.length == 0) {
+				alert('请输入正确格式的QQ号')
+			}
+		}
+		
+		function checkYuan(){
+			if (document.getElementById('seList').value == '') {
+				alert('请选择你的院系');
+			}
+		}
+		
+		function checkClass(){
+			if (document.getElementById('inputClass').value == '') {
+				alert('请输入你的专业');
+			}
+		}
+		
+		function checkCardID(){
+			if (document.getElementById('inputCardID').value == '') {
+				alert('请输入你的三翼小金卡号')
+			}
+		}
+		
+		function checkTrod(){
+			if (document.getElementById('reIntro').value == '') {
+				alert('给我们自我介绍一下呗')
+			}
+		}
+		
+		function check(){
+			checkName();
+			checkRadio();
+			checkTel();
+			checkQQ();
+			checkYuan();
+			checkClass();
+			checkCardID();
+			checkTrod();
+		}
 	</script>
 
 </html>
